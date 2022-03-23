@@ -1,776 +1,353 @@
-<script setup lang="ts">
-import { ref } from 'vue';
-
-const isSiderbar = ref(false);
-
-function toggleSidebar() {
-  isSiderbar.value = !isSiderbar.value;
-}
-</script>
-
 <template>
-  <div class="admin-wrap">
-    <!-- SIDEBAR -->
-    <section id="sidebar" :class="{ hide: isSiderbar }">
-      <router-link to="/" class="brand">
-        <span class="text">PHCY</span>
-      </router-link>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar Start -->
+    <div class="bg-white" id="sidebar-wrapper">
+      <div
+        class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase
+        border-bottom"
+      >
+        <i class="bi bi-incognito me-2"></i>Codersbite
+      </div>
 
-      <ul class="side-menu menu-top">
-        <li class="active">
-          <router-link to="/">
-            <i class="bi bi-border-all"></i>
-            <span class="text">Dashboard</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/">
-            <i class="bi bi-file-earmark-text"></i>
-            <span class="text">Orders</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/">
-            <i class="bi bi-archive"></i>
-            <span class="text">Products</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/">
-            <i class="bi bi-ticket-perforated"></i>
-            <span class="text">Coupon</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/">
-            <i class="bi bi-gear"></i>
-            <span class="text">Settings</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link class="logout" to="/">
-            <i class="bi bi-door-closed"></i>
-            <span class="text">Logout</span>
-          </router-link>
-        </li>
-      </ul>
-    </section>
+      <div class="list-group list-group-flush my-3">
+        <router-link
+          class="list-group-item list-group-item-action bg-trasparent second-text active"
+          to="/"
+        >
+          <i class="bi bi-speedometer2 me-2"></i>Dashboard
+        </router-link>
+        <router-link
+          class="list-group-item list-group-item-action bg-trasparent second-text fw-bold"
+          to="/"
+        >
+          <i class="bi bi-file-earmark-text me-2"></i>Orders
+        </router-link>
+        <router-link
+          class="list-group-item list-group-item-action bg-trasparent second-text fw-bold"
+          to="/"
+        >
+          <i class="bi bi-archive me-2"></i>Projects
+        </router-link>
+        <router-link
+          class="list-group-item list-group-item-action bg-trasparent second-text fw-bold"
+          to="/"
+        >
+          <i class="bi bi-ticket-perforated me-2"></i>Coupon
+        </router-link>
+        <router-link
+          class="list-group-item list-group-item-action bg-trasparent second-text fw-bold"
+          to="/"
+        >
+          <i class="bi bi-gear me-2"></i>Settings
+        </router-link>
+        <router-link
+          class="list-group-item list-group-item-action bg-trasparent second-text text-danger
+          fw-bold"
+          to="/"
+        >
+          <i class="bi bi-door-closed me-2"></i>Logout
+        </router-link>
+      </div>
+    </div>
+    <!-- Sidebar End -->
 
-    <!-- CONTENT -->
-    <section id="content">
-      <!-- NAVBAR -->
-      <nav>
-        <a href="javascript:void(0)" @click="toggleSidebar">
-          <i id="bar" class="bi bi-list"></i>
-          <span class="d-none">hambuger</span>
-        </a>
-        <a href="#" class="nav-link">Categories</a>
-        <form action="#">
-          <div class="form-input">
-            <input type="search" placeholder="Search..." />
-            <button type="submit" class="search-btn"><i class="bi bi-search"></i></button>
-          </div>
-        </form>
-        <a href="#" class="notification">
-          <i class="bi bi-bell"></i>
-          <span class="num">8</span>
-        </a>
-        <a href="#" class="profile">
-          <img src="@/assets/img/people.png" alt="" />
-          <span class="d-none">profile</span>
-        </a>
-      </nav>
-      <!-- MAIN -->
-      <main>
-        <div class="head-title">
-          <div class="left">
-            <h1>Dashnoard</h1>
-            <ul class="breadcrumb">
-              <li>
-                <a href="#">Dashboard</a>
-              </li>
-              <li><i class="bi bi-chevron-right"></i></li>
-              <li>
-                <a href="#" class="active">Home</a>
-              </li>
-            </ul>
-          </div>
-          <a href="#" class="add-product">
-            <i class="bi bi-archive"></i>
-            <span class="text">Add Product</span>
-          </a>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <nav class="navbar navbar-expand-lg navbar-light bg-transparent px-4 py-4">
+        <div class="d-flex align-items-center">
+          <i class="bi bi-text-left primary-text fs-4 me-3" id="menu-toggle"></i>
+          <h2 class="fs-2 m-0">Dashboard</h2>
         </div>
 
-        <ul class="box-info">
-          <li>
-            <i class="bi bi-clipboard-check"></i>
-            <span class="text">
-              <h3>1020</h3>
-              <p>New Order</p>
-            </span>
-          </li>
-          <li>
-            <i class="bi bi-person"></i>
-            <span class="text">
-              <h3>2834</h3>
-              <p>Visitors</p>
-            </span>
-          </li>
-          <li>
-            <i class="bi bi-coin"></i>
-            <span class="text">
-              <h3>$2543</h3>
-              <p>Total Sales</p>
-            </span>
-          </li>
-        </ul>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle Navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="table-data">
-          <div class="order">
-            <div class="head">
-              <h3>Recent Orders</h3>
-              <i class="bi bi-search"></i>
-              <i class="bi bi-filter"></i>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item-dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle second-text fw-bold"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-person me-2"></i>Jhon Doe
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="#">Profile</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Settings</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Logout</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid px-4">
+        <div class="row g-3 my-2">
+          <div class="col-md-3">
+            <div
+              class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center
+              rounded"
+            >
+              <div>
+                <h3 class="fs-2">720</h3>
+                <p class="fs-5">Products</p>
+              </div>
+              <i class="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
             </div>
-            <table>
+          </div>
+
+          <div class="col-md-3">
+            <div
+              class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center
+              rounded"
+            >
+              <div>
+                <h3 class="fs-2">4920</h3>
+                <p class="fs-5">Sales</p>
+              </div>
+              <i
+                class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg
+                p-3"
+              ></i>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div
+              class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center
+              rounded"
+            >
+              <div>
+                <h3 class="fs-2">3899</h3>
+                <p class="fs-5">Delivery</p>
+              </div>
+              <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div
+              class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center
+              rounded"
+            >
+              <div>
+                <h3 class="fs-2">%25</h3>
+                <p class="fs-5">Increase</p>
+              </div>
+              <i
+                class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"
+              ></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="row my-5">
+          <h3 class="fs-4 mb-3">Recent Orders</h3>
+          <div class="col">
+            <table class="table bg-white rounded shadow-sm table-hover">
               <thead>
                 <tr>
-                  <th>User</th>
-                  <th>Date Order</th>
-                  <th>Status</th>
+                  <th scope="col" width="50">#</th>
+                  <th scope="col">Product</th>
+                  <th scope="col">Customer</th>
+                  <th scope="col">Price</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>
-                    <img src="@/assets/img/people.png" alt="" />
-                    <p>Jhon Doe</p>
-                  </td>
-                  <td>01-10-2022</td>
-                  <td>
-                    <span class="status pending">Pending</span>
-                  </td>
+                  <th scope="row">1</th>
+                  <td>Television</td>
+                  <td>Jonny</td>
+                  <td>$1200</td>
                 </tr>
                 <tr>
-                  <td>
-                    <img src="@/assets/img/people.png" alt="" />
-                    <p>Jhon Doe</p>
-                  </td>
-                  <td>01-10-2022</td>
-                  <td>
-                    <span class="status pending">Pending</span>
-                  </td>
+                  <th scope="row">2</th>
+                  <td>Laptop</td>
+                  <td>Kenny</td>
+                  <td>$750</td>
                 </tr>
                 <tr>
-                  <td>
-                    <img src="@/assets/img/people.png" alt="" />
-                    <p>Jhon Doe</p>
-                  </td>
-                  <td>01-10-2022</td>
-                  <td>
-                    <span class="status process">Process</span>
-                  </td>
+                  <th scope="row">3</th>
+                  <td>Cell Phone</td>
+                  <td>Jenny</td>
+                  <td>$600</td>
                 </tr>
                 <tr>
-                  <td>
-                    <img src="@/assets/img/people.png" alt="" />
-                    <p>Jhon Doe</p>
-                  </td>
-                  <td>01-10-2022</td>
-                  <td>
-                    <span class="status completed">Completed</span>
-                  </td>
+                  <th scope="row">4</th>
+                  <td>Fridge</td>
+                  <td>Killy</td>
+                  <td>$300</td>
                 </tr>
                 <tr>
-                  <td>
-                    <img src="@/assets/img/people.png" alt="" />
-                    <p>Jhon Doe</p>
-                  </td>
-                  <td>01-10-2022</td>
-                  <td>
-                    <span class="status completed">Completed</span>
-                  </td>
+                  <th scope="row">5</th>
+                  <td>Books</td>
+                  <td>Filly</td>
+                  <td>$120</td>
+                </tr>
+                <tr>
+                  <th scope="row">6</th>
+                  <td>Gold</td>
+                  <td>Bumbo</td>
+                  <td>$1800</td>
+                </tr>
+                <tr>
+                  <th scope="row">7</th>
+                  <td>Pen</td>
+                  <td>Bilbo</td>
+                  <td>$75</td>
+                </tr>
+                <tr>
+                  <th scope="row">8</th>
+                  <td>Notebook</td>
+                  <td>Frodo</td>
+                  <td>$36</td>
+                </tr>
+                <tr>
+                  <th scope="row">9</th>
+                  <td>Dress</td>
+                  <td>Kimo</td>
+                  <td>$255</td>
+                </tr>
+                <tr>
+                  <th scope="row">10</th>
+                  <td>Paint</td>
+                  <td>Zico</td>
+                  <td>$434</td>
+                </tr>
+                <tr>
+                  <th scope="row">11</th>
+                  <td>Carpet</td>
+                  <td>Jeco</td>
+                  <td>$1236</td>
+                </tr>
+                <tr>
+                  <th scope="row">12</th>
+                  <td>Food</td>
+                  <td>Haso</td>
+                  <td>$422</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="todo">
-            <div class="head">
-              <h3>Todos</h3>
-              <i class="bi bi-plus-lg"></i>
-              <i class="bi bi-filter"></i>
-            </div>
-            <ul class="todo-list">
-              <li class="completed">
-                <p>Todo List</p>
-                <i class="bi bi-three-dots-vertical"></i>
-              </li>
-              <li class="not-completed">
-                <p>Todo List</p>
-                <i class="bi bi-three-dots-vertical"></i>
-              </li>
-              <li class="completed">
-                <p>Todo List</p>
-                <i class="bi bi-three-dots-vertical"></i>
-              </li>
-              <li class="not-completed">
-                <p>Todo List</p>
-                <i class="bi bi-three-dots-vertical"></i>
-              </li>
-              <li class="completed">
-                <p>Todo List</p>
-                <i class="bi bi-three-dots-vertical"></i>
-              </li>
-            </ul>
-          </div>
         </div>
-      </main>
-    </section>
+      </div>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-* {
-  // margin: 0;
-  padding: 0;
-  // box-sizing: border-box;
-}
-
 :root {
-  --poppins: 'Poppins', sans-serif;
-  --lato: 'Lato', sans-serif;
-
-  --light: #f9f9f9;
-  --blue: #3c91e6;
-  --light-blue: #cfe8ff;
-  --grey: #eee;
-  --dark-grey: #aaaaaa;
-  --dark: #342e37;
-  --red: #db504a;
-  --yellow: #ffce26;
-  --light-yellow: #fff2c6;
-  --orange: #fd7238;
-  --light-orange: #ffe0d3;
+  --main-bg-color: #009d63;
+  --main-text-color: #009d63;
+  --second-text-color: #bbbec5;
+  --second-bg-color: #c1efde;
 }
 
-.admin-wrap {
-  background: #eee;
-  height: 100vh;
+.primary-text {
+  color: var(--main-text-color);
+}
+
+.second-text {
+  color: var(--second-text-color);
+}
+
+.primary-bg {
+  background-color: var(--main-bg-color);
+}
+
+.secondary-bg {
+  background-color: var(--second-bg-color);
+}
+
+.rounded-full {
+  border-radius: 100%;
+}
+
+#wrapper {
   overflow-x: hidden;
+  background-image: linear-gradient(
+    to right,
+    #baf3d7,
+    #c2f5de,
+    #cbf7e4,
+    #d4f8ea,
+    #ddfaef
+  );
 }
 
-#sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 280px;
-  height: 100%;
-  background: #f9f9f9;
-  z-index: 2000;
-  transition: 0.3s ease;
-  overflow-x: hidden;
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
+}
 
-  &.hide {
-    width: 60px;
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
 
-    .side-menu li a {
-      width: calc(48px - (4px * 2));
-      transition: 0.3s ease;
-    }
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
 
-    & ~ #content {
-      width: calc(100% - 60px);
-      left: 60px;
-    }
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+#menu-toggle {
+  cursor: pointer;
+}
+
+.list-group-item {
+  border: none;
+  padding: 20px 30px;
+}
+
+.list-group-item.active {
+  background-color: transparent;
+  color: var(--main-text-color);
+  font-weight: bold;
+  border: none;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
   }
 
-  .brand {
-    font-size: 24px;
-    font-weight: 700;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #3c91e6;
-    position: sticky;
-    top: 0;
-    left: 0;
-    background: #f9f9f9;
-    z-index: 500;
-    padding-bottom: 20px;
-    box-sizing: content-box;
-  }
-
-  .side-menu {
+  #page-content-wrapper {
+    min-width: 0;
     width: 100%;
-    margin-top: 48px;
-
-    li {
-      height: 48px;
-      background: transparent;
-      margin-left: 6px;
-      border-radius: 48px 0 0 48px;
-      padding: 4px;
-
-      &.active {
-        // background: #eee;
-        // position: relative;
-
-        // &::before {
-        //   content: '';
-        //   position: absolute;
-        //   width: 40px;
-        //   height: 40px;
-        //   border-radius: 50%;
-        //   top: -40px;
-        //   right: 0;
-        //   box-shadow: 20px 20px 0 #eee;
-        //   z-index: -1;
-        // }
-
-        // &::after {
-        //   content: '';
-        //   position: absolute;
-        //   width: 40px;
-        //   height: 40px;
-        //   border-radius: 50%;
-        //   bottom: -40px;
-        //   right: 0;
-        //   box-shadow: 20px -20px 0 #eee;
-        //   z-index: -1;
-        // }
-
-        a {
-          color: #3c91e6;
-        }
-      }
-
-      a {
-        width: 100%;
-        height: 100%;
-        background: #f9f9f9;
-        display: flex;
-        align-items: center;
-        border-radius: 48px;
-        font-size: 16px;
-        color: #342e37;
-        white-space: nowrap;
-        overflow-x: hidden;
-
-        &:hover {
-          color: #3c91e6;
-        }
-
-        i {
-          min-width: calc(60px - ((4px + 6px) * 2));
-          display: flex;
-          justify-content: center;
-        }
-      }
-
-      .logout {
-        color: #db504a;
-      }
-    }
-  }
-}
-
-#content {
-  position: relative;
-  width: calc(100% - 280px);
-  left: 280px;
-  transition: 0.3s ease;
-
-  nav {
-    height: 56px;
-    background: #f9f9f9;
-    padding: 0 24px;
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   width: 40px;
-    //   height: 40px;
-    //   bottom: -40px;
-    //   left: 0;
-    //   border-radius: 50%;
-    //   box-shadow: -20px -20px 0 #f9f9f9;
-    // }
-
-    a {
-      color: #342e37;
-    }
-
-    i {
-      cursor: pointer;
-    }
-
-    .nav-link {
-      font-size: 16px;
-      transition: 0.3s ease;
-
-      &:hover {
-        color: #3c91e6;
-      }
-    }
-
-    form {
-      max-width: 400px;
-      width: 100%;
-      margin-right: auto;
-
-      .form-input {
-        display: flex;
-        align-items: center;
-        height: 36px;
-
-        input {
-          flex-grow: 1;
-          padding: 0 16px;
-          height: 100%;
-          border: none;
-          outline: none;
-          background: #eee;
-          border-radius: 36px 0 0 36px;
-          width: 100%;
-        }
-
-        button {
-          width: 36px;
-          height: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background: #3c91e6;
-          color: #f9f9f9;
-          font-size: 18px;
-          border: none;
-          outline: none;
-          border-radius: 0 36px 36px 0;
-          cursor: pointer;
-        }
-      }
-    }
-
-    .notification {
-      font-size: 20px;
-      position: relative;
-
-      .num {
-        position: absolute;
-        top: -6px;
-        right: -6px;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        border: 2px solid #f9f9f9;
-        background: #db504a;
-        color: #f9f9f9;
-        font-weight: 700;
-        font-size: 12px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-
-    .profile img {
-      width: 36px;
-      height: 36px;
-      object-fit: cover;
-      border-radius: 50%;
-    }
-  }
-}
-
-main {
-  width: 100%;
-  padding: 36px 24px;
-  max-height: calc(100vh - 56px);
-  overflow-y: auto;
-
-  .head-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
-
-    .left {
-      h1 {
-        font-size: 36px;
-        font-weight: 600;
-        margin-bottom: 10px;
-        color: #342e37;
-      }
-
-      .breadcrumb {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-
-        li {
-          color: #342e37;
-
-          a {
-            color: #aaaaaa;
-            pointer-events: none;
-
-            &.active {
-              color: #3c91e6;
-              pointer-events: unset;
-            }
-          }
-        }
-      }
-    }
-
-    .add-product {
-      height: 36px;
-      padding: 0 16px;
-      border-radius: 36px;
-      background: #3c91e6;
-      color: #f9f9f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      font-weight: 500;
-    }
   }
 
-  .box-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
-    margin-top: 36px;
-
-    li {
-      padding: 24px;
-      background: #f9f9f9;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      gap: 24px;
-
-      i {
-        width: 80px;
-        height: 80px;
-        border-radius: 10px;
-        background: #eee;
-        font-size: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      &:nth-child(1) i {
-        background: #cfe8ff;
-        color: #3c91e6;
-      }
-
-      &:nth-child(2) i {
-        background: #fff2c6;
-        color: #ffce26;
-      }
-
-      &:nth-child(3) i {
-        background: #ffe0d3;
-        color: #fd7238;
-      }
-
-      .text h3 {
-        font-size: 24px;
-        font-weight: 600;
-      }
-    }
-  }
-
-  .table-data {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    margin-top: 24px;
-    width: 100%;
-    color: #342e37;
-
-    & > div {
-      border-radius: 20px;
-      background: #f9f9f9;
-      padding: 24px;
-      overflow-x: auto;
-    }
-
-    .head {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
-
-      h3 {
-        margin-right: auto;
-        font-size: 24px;
-        font-weight: 600;
-      }
-
-      i {
-        cursor: pointer;
-      }
-    }
-
-    .order {
-      flex-grow: 1;
-      flex-basis: 500px;
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-
-        th {
-          padding-bottom: 12px;
-          font-size: 13px;
-          text-align: left;
-          border-bottom: 1px solid #eee;
-        }
-
-        td {
-          padding: 16px 0;
-
-          img {
-            width: 36px;
-            width: 36px;
-            border-radius: 50%;
-            object-fit: cover;
-          }
-
-          .status {
-            font-size: 10px;
-            padding: 6px 16px;
-            color: #f9f9f9;
-            border-radius: 20px;
-            font-weight: 700;
-          }
-
-          .status.completed {
-            background: #3c91e6;
-          }
-
-          .status.process {
-            background: #ffce26;
-          }
-
-          .status.pending {
-            background: #fd7238;
-          }
-        }
-
-        tr:hover {
-          background: #eee;
-        }
-
-        tr td:first-child {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          padding-left: 6px;
-        }
-      }
-    }
-
-    .todo {
-      flex-grow: 1;
-      flex-basis: 300px;
-
-      .todo-list {
-        width: 100%;
-
-        li {
-          width: 100%;
-          margin-bottom: 16px;
-          background: #eee;
-          border-radius: 10px;
-          padding: 14px 20px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-
-          &:last-child {
-            margin-bottom: 0;
-          }
-
-          &.completed {
-            border-left: 10px solid #3c91e6;
-          }
-
-          &.not-completed {
-            border-left: 10px solid #fd7238;
-          }
-
-          i {
-            cursor: pointer;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
-  #sidebar {
-    width: 200px;
-  }
-  #content {
-    width: calc(100% - 60px);
-    left: 200px;
-
-    nav .nav-link {
-      display: none;
-    }
-  }
-}
-
-@media screen and (max-width: 576px) {
-  #content nav form .form-input {
-    input {
-      display: none;
-    }
-
-    button {
-      width: auto;
-      height: auto;
-      background: transparent;
-      border-radius: none;
-      color: #342e37;
-    }
-  }
-
-  #content nav .profile img {
-    width: 48px;
-  }
-
-  .box-info {
-    grid-template-columns: 1fr;
-  }
-
-  .table-data {
-    .head {
-      min-width: 420px;
-    }
-
-    .order table {
-      min-width: 420px;
-    }
-
-    .todo .todo-list {
-      min-width: 420px;
-    }
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
   }
 }
 </style>

@@ -1,8 +1,15 @@
 import { createApp } from 'vue';
 import 'bootstrap';
 import 'bootstrap/dist/js/bootstrap';
+// Bootstrap Icon
 import 'bootstrap-icons/font/bootstrap-icons.css';
+
+// Bootstrap Dropdown
+import 'bootstrap/dist/js/bootstrap.bundle';
+
+// Pinia
 import { createPinia } from 'pinia';
+
 import App from './App.vue';
 import router from './router';
 
